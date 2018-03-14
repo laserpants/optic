@@ -31,4 +31,4 @@ myOptsParser :: Parser MyOpts
 myOptsParser = MyOpts <$> strOpt "file" <*> countOpt "verbose"
 
 main :: IO ()
-main = pure ()
+main = print $ parse myOptsParser ["--file", "foo.txt", "-v", "--file", "baz.exe", "-v", "-v", "--magic", "1"]
